@@ -8,9 +8,9 @@
     <!-- NavBar  -->
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link" href="#">View Database</a>
+                <a class="nav-link" href="./index.php">View Database</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Add Customer</a>
+                <a class="nav-link" href="./addCustomer.php">Add Customer</a>
             </li>
         </ul>

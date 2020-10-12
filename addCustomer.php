@@ -34,6 +34,14 @@ $phone='123-456-7890';
       if (strlen($phone) < 10 || strlen($phone) > 14) {
         $errors['phone'] = 'Please enter valid phone number! <br />';
       }
+    }
+
+    // redirect back to initial page if no form errors
+    if(!array_filter($errors)) {
+
+      // save to db 
+      
+      header('location: index.php');
     };
   }
 
