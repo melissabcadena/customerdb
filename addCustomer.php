@@ -1,6 +1,9 @@
 
 <?php 
 
+include('config/db_connect.php');
+
+
 $errors = array('name'=> "", 'email'=> '', 'phone'=>'');
 $name='Full name';
 $email='Email';
@@ -40,8 +43,19 @@ $phone='123-456-7890';
     if(!array_filter($errors)) {
 
       // save to db 
-      
-      header('location: index.php');
+      $name = mysqli_real_escape_string($conn, $_POST['name']);
+      $email = mysqli_real_escape_string($conn, $_POST['email']);
+      $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+
+      $sql = "INSERT INTO customer_info(name, email, phone) VALUES('$name', '$email', '$phone')";
+
+      // if successfully added, redirect
+      if(mysqli_query($conn, $sql)) {
+        header('location: index.php');
+      } else {
+        // if error
+        echo 'query error: ' . mysqli_error($conn);
+      }
     };
   }
 
