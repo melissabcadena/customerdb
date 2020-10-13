@@ -32,7 +32,7 @@ include('config/db_connect.php');
   <tbody>
   <?php foreach($customers as $customer){ ?>
     <tr>
-      <th scope="row"><?php echo $customer['id']?></th>
+      <th scope="row"><a href="customer.php?id=<?php echo $customer['id']?>"><?php echo $customer['id']?></a></th>
       <td><?php echo $customer['name']?></td>
       <td><?php echo $customer['email']?></td>
       <td><?php echo $customer['phone']?></td>
