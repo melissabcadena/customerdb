@@ -2,6 +2,19 @@
 
 include('config/db_connect.php');
 
+if(isset($_POST['delete'])) {
+    $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
+    $sql = "DELETE FROM customer_info WHERE id = $id_to_delete";
+
+    // if successful
+    if(mysqli_query($conn, $sql)) {
+        header("Location: index.php");
+    } else {
+        // if not successful
+        echo 'query error: ' . mysqli_error($conn);
+    }
+}
+
 // check get request id
 if(isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -44,7 +57,12 @@ if(isset($_GET['id'])) {
       <td><?php echo $customer['email']?></td>
       <td><?php echo $customer['phone']?></td>
       <td><a href="#">Update</a></td>
-      <td><a href="#">Delete</a></td>
+      <td>
+        <form action='customer.php' method='post'>
+            <input type="hidden" name="id_to_delete" value="<?php echo $customer['id'] ?>">
+            <input type="submit" name="delete" value="Delete" class="btn btn-primary">
+        </form>
+      </td>
 
     </tr>
 
