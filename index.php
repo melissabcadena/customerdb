@@ -20,6 +20,7 @@ include('config/db_connect.php');
   <?php include('templates/header.php'); ?>
 
   <h4> Customer Data Table </h4>
+  <p> Click ID# for more options </p>
   <table class="table">
   <thead>
     <tr>

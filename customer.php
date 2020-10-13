@@ -56,7 +56,7 @@ if(isset($_GET['id'])) {
       <td><?php echo $customer['name']?></td>
       <td><?php echo $customer['email']?></td>
       <td><?php echo $customer['phone']?></td>
-      <td><a href="#">Update</a></td>
+      <td><a href="updateCustomer.php?id=<?php echo $customer['id']?>" class="btn btn-primary">Update</a></td>
       <td>
         <form action='customer.php' method='post'>
             <input type="hidden" name="id_to_delete" value="<?php echo $customer['id'] ?>">
